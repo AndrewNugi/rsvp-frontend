@@ -97,7 +97,7 @@ export class RSVPService {
 
   // Check server health
   checkServerHealth(): Observable<boolean> {
-    return this.http.get<{ status: string }>('http://localhost:3000/health')
+    return this.http.get<{ status: string }>('https://rsvp-backend-jq55.onrender.com/health')
       .pipe(
         map(response => response.status === 'OK'),
         catchError(() => throwError(() => new Error('Server is not responding')))
