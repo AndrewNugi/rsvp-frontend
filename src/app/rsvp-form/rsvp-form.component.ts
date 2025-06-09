@@ -147,7 +147,7 @@ export class RSVPFormComponent implements OnInit {
     setTimeout(() => {
       this.designedSuccessMessage = '';
       this.designedErrorMessage = '';
-    }, 2000);
+    }, 10000);
   }
 
   // Clear all RSVPs with password protection
@@ -258,16 +258,16 @@ export class RSVPFormComponent implements OnInit {
       doc.setFontSize(12);
       doc.text(`Generated on: ${new Date().toLocaleDateString()}`, 14, 32);
       doc.text(`Total Members: ${this.rsvpList.length}`, 14, 40);
-      doc.text(`Exported by: Admin`, 14, 48);
+      // doc.text(`Exported by: Admin`, 14, 48);
 
-      if (this.serverConnected) {
-        doc.text('Source: Database', 14, 56);
-      } else {
-        doc.text('Source: Local Storage', 14, 56);
-      }
+      // if (this.serverConnected) {
+      //   doc.text('Source: Database', 14, 56);
+      // } else {
+      //   doc.text('Source: Local Storage', 14, 56);
+      // }
 
       // Prepare table data
-      const tableColumn = ['#', 'Name', 'Email', 'Mobile Number', 'Date Added'];
+      const tableColumn = ['#', 'Name', 'Email', 'Mobile Number', 'Arrived'];
       const tableRows: string[][] = [];
 
       this.rsvpList.forEach((entry, index) => {
@@ -280,7 +280,7 @@ export class RSVPFormComponent implements OnInit {
           entry.name || '',
           entry.email || '',
           entry.mobile_number || '',
-          dateAdded
+          ''
         ];
         tableRows.push(rowData);
       });
@@ -295,8 +295,8 @@ export class RSVPFormComponent implements OnInit {
           cellPadding: 2
         },
         headStyles: {
-          fillColor: [34, 197, 94], // Green color
-          textColor: [255, 255, 255]
+          fillColor: [255, 215, 0], // Green color
+          textColor: [0, 0, 0]
         },
         alternateRowStyles: {
           fillColor: [245, 245, 245]
