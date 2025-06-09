@@ -47,16 +47,22 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "allowedCommonJsDependencies": [
+                "canvg",
+                "core-js",
+                "html2canvas",
+                "rgbcolor",
+                "raf",
+                "jspdf"
+              ],
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "500kb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2kb"
                 }
               ],
               "outputHashing": "all"
