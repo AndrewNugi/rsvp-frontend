@@ -1,0 +1,140 @@
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+</head>
+<div class="container">
+    <!-- Popup Modal -->
+    <div *ngIf="showPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Congratulations Neema!🥳</h2>
+            <div class="image-container">
+                <img src='/assets/neema-wakori.jpeg' alt="Neema's graduation photo">
+            </div>
+            <p>Let's celebrate Neema's Graduation together 🎉</p>
+            <p>Click below to RSVP 📩</p>
+            <button class="popup-button" (click)="closePopup()">RSVP Now 📩</button>
+        </div>
+    </div>
+
+    <!-- Admin Password Prompt Modal -->
+    <div *ngIf="showPasswordPrompt" class="popup-overlay">
+        <div class="popup-content admin-popup">
+            <h2>🔐 Admin Access Required</h2>
+            <p *ngIf="pendingAction === 'export'">Enter admin password to export PDF:</p>
+            <p *ngIf="pendingAction === 'clear'">Enter admin password to clear all data:</p>
+
+            <div class="password-input-container">
+                <input type="password" id="adminPassword" [(ngModel)]="passwordInput" placeholder="Enter admin password"
+                    (keydown)="onPasswordKeyPress($event)" class="password-input" autocomplete="current-password">
+            </div>
+
+            <div class="password-buttons">
+                <button class="verify-button" (click)="verifyPassword()">
+                    ✓ Verify
+                </button>
+                <button class="cancel-button" (click)="cancelPasswordPrompt()">
+                    ✗ Cancel
+                </button>
+            </div>
+
+            <div class="password-hint">
+                <small>💡 Hint: Contact the admin if you don't have the password</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main RSVP Form -->
+    <div class="max-w-md" *ngIf="!showPopup">
+        <!-- Connection Status -->
+        <div *ngIf="!serverConnected && errorMessage" class="connection-status warning">
+            ⚠️ {{ errorMessage }}
+        </div>
+
+        <div class="mt-4">
+            <div *ngIf="designedErrorMessage" class="error-box">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fa fa-check-circle text-red-500 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-red-700">{{ designedErrorMessage }}</p>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="designedSuccessMessage" class="success-box">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fa fa-check-circle text-green-500 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-green-700">{{ designedSuccessMessage }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rsvpPage">
+            <div class="image-container-form">
+                <img src='/assets/neema-wakori.jpeg' alt="Neema's graduation photo">
+            </div>
+            <h2>RSVP for Neema's Graduation 🎓</h2>
+            <p>Please fill out the form below to RSVP for Neema's graduation celebration.</p>
+            <p>Your presence means a lot to us! ❤️</p>
+        </div>
+
+        <form [formGroup]="rsvpForm" (ngSubmit)="addRSVP()">
+            <!-- Name Field -->
+            <div>
+                <label for="name">Name *</label>
+                <input type="text" id="name" formControlName="name" [class.border-red-500]="hasError('name')" />
+                <div *ngIf="hasError('name')" class="text-red-500">
+                    {{ getErrorMessage('name') }}
+                </div>
+            </div>
+
+            <!-- Email Field -->
+            <div>
+                <label for="email">Email *</label>
+                <input type="email" id="email" formControlName="email" [class.border-red-500]="hasError('email')" />
+                <div *ngIf="hasError('email')" class="text-red-500">
+                    {{ getErrorMessage('email') }}
+                </div>
+            </div>
+
+            <!-- Mobile Number Field -->
+            <div>
+                <label for="mobile_number">Mobile Number *</label>
+                <input type="text" id="mobile_number" formControlName="mobile_number"
+                    [class.border-red-500]="hasError('mobile_number')" />
+                <div *ngIf="hasError('mobile_number')" class="text-red-500">
+                    {{ getErrorMessage('mobile_number') }}
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" [disabled]="isSubmitting">
+                <span *ngIf="isSubmitting">Adding RSVP...</span>
+                <span *ngIf="!isSubmitting">Add RSVP</span>
+            </button>
+        </form>
+
+        <!-- Simple RSVP List Display -->
+        <div class="mt-8">
+            <div class="mb-4">
+                <h2>RSVP List ({{ rsvpList.length }} members)</h2>
+                <div class="flex space-x-2 mt-2">
+                    <button (click)="exportToPDF()" class="bg-blue-500 admin-button">
+                        🔐 📄 Download List PDF
+                    </button>
+                    <button (click)="clearAllRSVPs()" class="bg-red-500 admin-button">
+                        🔐 🗑️ Clear All
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

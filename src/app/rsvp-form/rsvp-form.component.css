@@ -1,0 +1,595 @@
+/* Additional custom styles for the RSVP form 
+.rsvp-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom focus styles 
+input:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* Animation for new entries 
+.rsvp-entry {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button hover effects 
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Error state styling 
+.error-input {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+/* Success message styling 
+.success-message {
+  background-color: #f0fdf4;
+  border-color: #22c55e;
+  color: #15803d;
+}
+  */
+/* Graduation Theme CSS for RSVP Form */
+/* Center the container vertically and horizontally */
+/* Graduation Theme CSS for RSVP Form */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #000000, #1a1a1a);
+    background-image: url('/assets/graduation-stage-background.jpeg');
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+/* Popup Modal Styles */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #111;
+    border: 2px solid gold;
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.5);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.popup-content h2 {
+    color: gold;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    font-family: "Akaya Telivigala", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.popup-content p {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-family: "Akaya Telivigala", system-ui;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.image-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid gold;
+}
+
+.image-container::before {
+    content: "🎓";
+    position: absolute;
+    top: -10px;
+    right: -30px;
+    font-size: 60px;
+    z-index: 1;
+}
+
+.image-container::after {
+    content: "✨";
+    position: absolute;
+    bottom: 10px;
+    left: -13px;
+    font-size: 40px;
+    z-index: 1;
+}
+
+.image-container-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.image-container-form img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid gold;
+}
+
+.popup-button {
+    background-color: gold;
+    color: #000;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-button:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Main RSVP Form Styles */
+.container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.max-w-md {
+    background-color: #111;
+    border: 2px solid gold;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    color: gold;
+    font-family: "Akaya Telivigala", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+label {
+    color: gold;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: "Akaya Telivigala", system-ui;
+    font-weight: 100;
+    font-style: normal;
+}
+
+p {
+    color: #fff;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-family: "Akaya Telivigala", system-ui;
+    font-weight: 200;
+    font-style: normal;
+}
+
+input {
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 8px;
+    width: 90%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+input:focus {
+    border-color: gold;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+}
+
+.text-red-500 {
+    color: #ff6b6b;
+    font-size: 0.875rem;
+    margin-top: -0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+button[type="submit"] {
+    background-color: gold;
+    color: black;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 97%;
+    padding: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+button[type="submit"]:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+/* RSVP List Styles */
+h3 {
+    color: gold;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.bg-blue-500,
+.bg-red-500 {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.bg-blue-500 {
+    background-color: gold;
+    color: #000;
+}
+
+.bg-blue-500:hover {
+    background-color: #e6c200;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+}
+
+.bg-red-500 {
+    background-color: #b30000;
+    color: white;
+}
+
+.bg-red-500:hover {
+    background-color: #cc0000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Simple RSVP Names List Styles */
+.rsvp-names-container {
+    background-color: #1a1a1a;
+    border: 1px solid gold;
+    border-radius: 10px;
+    padding: 1rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.rsvp-name-item {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.35rem;
+    margin-bottom: 0.2rem;
+    background-color: #222;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease-out;
+}
+
+.rsvp-name-item:hover {
+    background-color: #2a2a2a;
+    transform: translateX(5px);
+}
+
+.rsvp-name-item:last-child {
+    margin-bottom: 0;
+}
+
+.rsvp-number {
+    color: gold;
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 30px;
+    font-family: "Akaya Telivigala", system-ui;
+}
+
+.rsvp-name {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+    flex: 1;
+    font-family: "Akaya Telivigala", system-ui;
+}
+
+.rsvp-email {
+    color: #bbb;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-family: "Akaya Telivigala", system-ui;
+}
+
+/* Scrollbar styling for the names container */
+.rsvp-names-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.rsvp-names-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.rsvp-names-container::-webkit-scrollbar-thumb {
+    background: gold;
+    border-radius: 4px;
+}
+
+.rsvp-names-container::-webkit-scrollbar-thumb:hover {
+    background: #e6c200;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.space-x-2>*+* {
+    margin-left: 0.5rem;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Admin Password Prompt Styles */
+.admin-popup {
+    max-width: 400px !important;
+}
+
+.password-input-container {
+    margin: 20px 0;
+}
+
+.password-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.password-input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.password-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.verify-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.verify-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.verify-button:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+}
+
+.cancel-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #da190b;
+    transform: translateY(-1px);
+}
+
+.password-hint {
+    text-align: center;
+    color: #666;
+    margin-top: 15px;
+}
+
+/* Admin Button Styles */
+.admin-button {
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 0.375rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.admin-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.admin-button:hover::before {
+    left: 100%;
+}
+
+/* Connection Status Styles */
+.connection-status {
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.connection-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.connection-status.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Enhanced RSVP List Styles */
+.rsvp-name-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.rsvp-name-item:hover {
+    background-color: #f8f9fa;
+}
+
+.rsvp-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Security Visual Indicators */
+.admin-button {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.admin-button:hover {
+    border-color: #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.success-box {
+    padding: 1rem;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 0.375rem;
+}
+
+.error-box {
+    padding: 1rem;
+    background-color: #f90c0c;
+    border: 1px solid #fecaca;
+    border-radius: 0.375rem;
+    color: white;
+}
+
+
+/* Responsive Design for Password Modal */
+@media (max-width: 480px) {
+    .admin-popup {
+        max-width: 90% !important;
+        margin: 20px;
+    }
+
+    .password-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .verify-button,
+    .cancel-button {
+        width: 100%;
+    }
+}
