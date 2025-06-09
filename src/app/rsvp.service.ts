@@ -24,7 +24,7 @@ export interface APIResponse<T> {
   providedIn: 'root'
 })
 export class RSVPService {
-  private apiUrl = 'http://localhost:3000/api/rsvps'; // Change this to your backend URL
+  private apiUrl = 'https://rsvp-backend-jq55.onrender.com/rsvps'; // Change this to your backend URL
 
   constructor(private http: HttpClient) { }
 
