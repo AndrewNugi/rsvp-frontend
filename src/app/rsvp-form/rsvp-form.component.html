@@ -136,10 +136,10 @@
             <div class="mb-4">
                 <h2>RSVP List ({{ rsvpList.length }} member<span *ngIf="rsvpList.length !== 1">s</span>)</h2>
                 <div class="flex space-x-2 mt-2">
-                    <button (click)="exportToPDF()" class="bg-blue-500 admin-button" *ngIf="rsvpList.length !== 1">
+                    <button (click)="exportToPDF()" class="bg-blue-500 admin-button" *ngIf="rsvpList.length >= 1">
                         🔐 📄 Download List PDF
                     </button>
-                    <button (click)="clearAllRSVPs()" class="bg-red-500 admin-button" *ngIf="rsvpList.length !== 1">
+                    <button (click)="clearAllRSVPs()" class="bg-red-500 admin-button" *ngIf="rsvpList.length >= 1">
                         🔐 🗑️ Clear All
                     </button>
                 </div>
