@@ -563,3 +563,43 @@ h3 {
         width: 100%;
     }
 }
+
+/* Mobile Responsive Popup Styles - Add this to your existing CSS */
+@media (max-width: 768px) {
+    .popup-content {
+        max-width: 90%;
+        width: 90%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .popup-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .popup-content p {
+        font-size: 1rem;
+    }
+    
+    .image-container img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .image-container::before {
+        font-size: 45px;
+        top: -8px;
+        right: -20px;
+    }
+    
+    .image-container::after {
+        font-size: 30px;
+        bottom: 8px;
+        left: -10px;
+    }
+    
+    .popup-button {
+        width: 100%;
+        font-size: 18px;
+    }
+}
