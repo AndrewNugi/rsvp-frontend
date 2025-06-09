@@ -5,6 +5,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <div class="container">
     <!-- Popup Modal -->
@@ -67,7 +68,8 @@
             <!-- Name Field -->
             <div>
                 <label for="name">Name<sup class="text-red-500">*</sup></label>
-                <input type="text" id="name" formControlName="name" [class.border-red-500]="hasError('name')" placeholder="Enter your names"/>
+                <input type="text" id="name" formControlName="name" [class.border-red-500]="hasError('name')"
+                    placeholder="Enter your names" />
                 <div *ngIf="hasError('name')" class="text-red-500">
                     {{ getErrorMessage('name') }}
                 </div>
@@ -76,7 +78,8 @@
             <!-- Email Field -->
             <div>
                 <label for="email">Email<sup class="text-red-500">*</sup></label>
-                <input type="email" id="email" formControlName="email" [class.border-red-500]="hasError('email')" placeholder="Enter your email" />
+                <input type="email" id="email" formControlName="email" [class.border-red-500]="hasError('email')"
+                    placeholder="Enter your email" />
                 <div *ngIf="hasError('email')" class="text-red-500">
                     {{ getErrorMessage('email') }}
                 </div>
@@ -103,7 +106,7 @@
             <div *ngIf="designedErrorMessage" class="error-box">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <i class="fa fa-check-circle text-red-500 text-xl"></i>
+                        <i class="fa fa-exclamation-circle icon" style="color: red; font-size: 17px; margin-right: 10px; margin-top: 3px;"></i>
                     </div>
                     <div class="ml-3">
                         <p style="
@@ -116,7 +119,7 @@
             <div *ngIf="designedSuccessMessage" class="success-box">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <i class="fa fa-check-circle text-green-500 text-xl"></i>
+                        <i class="fa fa-check-circle" style="color: green; font-size: 17px; margin-right: 10px; margin-top: 3px;"></i>
                     </div>
                     <div class="ml-3">
                         <p style="
