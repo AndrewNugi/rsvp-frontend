@@ -229,7 +229,7 @@ export class RSVPFormComponent implements OnInit {
         this.rsvpService.deleteAllRSVPs().subscribe({
           next: (result) => {
             this.rsvpList = [];
-            this.showTemporaryMessage('success', `✅ All RSVP entries have been cleared! (${result.deletedCount} records deleted)`);
+            this.showTemporaryMessage('success', `✅ All RSVP entries have been cleared!`);
           },
           error: (error) => {
             console.error('Error clearing RSVPs:', error);
