@@ -70,27 +70,27 @@
                 <label for="name">Name<sup class="text-red-500">*</sup></label>
                 <input type="text" id="name" formControlName="name" [class.border-red-500]="hasError('name')"
                     placeholder="Enter your names" />
-                <div *ngIf="hasError('name')" class="text-red-500">
+                <div *ngIf="hasError('name')" class="error-label">
                     {{ getErrorMessage('name') }}
                 </div>
             </div>
 
             <!-- Email Field -->
             <div>
-                <label for="email">Email<sup class="text-red-500">*</sup></label>
+                <label for="email">Email</label>
                 <input type="email" id="email" formControlName="email" [class.border-red-500]="hasError('email')"
                     placeholder="Enter your email" />
-                <div *ngIf="hasError('email')" class="text-red-500">
+                <div *ngIf="hasError('email')" class="error-label">
                     {{ getErrorMessage('email') }}
                 </div>
             </div>
 
             <!-- Mobile Number Field -->
             <div>
-                <label for="mobile_number">Mobile Number<sup class="text-red-500">*</sup></label>
+                <label for="mobile_number">Mobile Number</label>
                 <input type="text" id="mobile_number" formControlName="mobile_number"
                     [class.border-red-500]="hasError('mobile_number')" placeholder="07********" />
-                <div *ngIf="hasError('mobile_number')" class="text-red-500">
+                <div *ngIf="hasError('mobile_number')" class="error-label">
                     {{ getErrorMessage('mobile_number') }}
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div *ngIf="designedErrorMessage" class="error-box">
                 <div class="flex">
                     <div class="flex-shrink-0">
-                        <i class="fa fa-exclamation-circle icon" style="color: red; font-size: 17px; margin-right: 10px; margin-top: 3px;"></i>
+                        <i class="fa fa-exclamation-circle icon" style="color: red; font-size: 17px; margin-right: 10px; margin-top: 8px;"></i>
                     </div>
                     <div class="ml-3">
                         <p style="
