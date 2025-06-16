@@ -168,6 +168,12 @@ label {
     font-style: normal;
 }
 
+.error-label {
+    font-family: "Akaya Telivigala", system-ui;
+    font-style: normal;
+    color: rgb(255, 0, 0);
+}
+
 p {
     color: #fff;
     margin-bottom: 0.5rem;
