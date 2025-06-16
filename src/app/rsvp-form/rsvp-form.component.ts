@@ -31,9 +31,9 @@ export class RSVPFormComponent implements OnInit {
     private rsvpService: RSVPService
   ) {
     this.rsvpForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', [Validators.required, Validators.email]],
-      mobile_number: ['', [Validators.required, Validators.pattern(/^[+]?[\d\s\-\(\)]+$/)]]
+      name: ['', Validators.required],
+      email: ['', [Validators.email]],
+      mobile_number: ['', [Validators.pattern(/^[+]?[\d\s\-\(\)]+$/)]]
     });
   }
 
@@ -129,7 +129,7 @@ export class RSVPFormComponent implements OnInit {
       }
     } else {
       this.markFormGroupTouched(this.rsvpForm);
-      this.showTemporaryMessage('error', 'Please fill in all required fields correctly!');
+      this.showTemporaryMessage('error', 'Please provide your name📝');
     }
   }
 
